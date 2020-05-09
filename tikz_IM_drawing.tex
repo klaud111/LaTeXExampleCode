@@ -131,8 +131,8 @@
     \foreach \s in {1, 2, ..., \qr} {
       % only need to draw the first slot, rotate the rest
       \begin{scope} [rotate = {180 * (2 * \s - 1) / \Qr + \thetar}]
-      % draw teeth surface
-        \draw [thick] ({0.5 * \thetaRotorSlot} : \ror) arc [start angle = {0.5 * \thetaRotorSlot}, end angle = {180 / \Qr}, radius = \ror];
+        % draw teeth surface
+        \draw [thick] ({  0.5 * \thetaRotorSlot} : \ror) arc [start angle = {  0.5 * \thetaRotorSlot}, end angle = {  180 / \Qr}, radius = \ror];
         \draw [thick] ({- 0.5 * \thetaRotorSlot} : \ror) arc [start angle = {- 0.5 * \thetaRotorSlot}, end angle = {- 180 / \Qr}, radius = \ror];
 		
         % draw slot
@@ -142,6 +142,15 @@
         % draw an arc for bar envelope
         \draw ({\ror - \dbarco + \thetaRotorSlotTangXtoCo}, {- 0.5 * \swr}) arc [start angle = {- 0.5 * \thetaRotorSlotTang}, end angle = {0.5 * \thetaRotorSlotTang}, radius = \rco];
       \end{scope}
+    }
+    
+    % numbering
+    \foreach \s in {1, 2, ..., \qs} {
+      \draw ({180 * (2 * \s -1 ) / \Qs} : {(\ris + \dtangs + \ros - \cws) * 0.5}) node {$\s$};
+    }
+
+    \foreach \s in {1, 2, ..., \qr} {
+      \draw ({180 * (2 * \s - 1) / \Qr + \thetar} : {\ror - \dbarco - 0.45 * \dbarcc}) node [font = \tiny] {$\s$};
     }
   \end{tikzpicture}
 \end{figure}
